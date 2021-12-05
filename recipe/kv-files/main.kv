@@ -1,0 +1,172 @@
+<Manager>:
+    RecipeWindow:
+        name:"Menu"
+    Pizza:
+        name:"Pizza"
+    Lasagne:
+        name:"Lasagne"
+    Gyros:
+        name:"Gyros"
+    Hamburger:
+        name:"Hamburger"
+
+
+<RecipeWindow>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text:"Ingredients"
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            font_size: 40
+        Button:
+            text:"Pizza"
+            size_hint:0.5,0.2
+            pos_hint:{"top":0.1, "right":0.75}
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            on_press: root.pizzaConsole()
+            on_release: root.manager.current = "Pizza"
+            background_color:(255, 204, 0, 1)
+            color:(0,0,0,1)
+        Button:
+            text:"Lasagne"
+            size_hint:0.5,0.2
+            pos_hint:{"top":0.1, "right":0.75}
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            on_release:root.manager.current = "Lasagne"
+            on_press: root.lasagneConsole()
+            background_color:(1, 0, 0, 0.68)
+        Button:
+            text:"Gyros"
+            size_hint:0.5,0.2
+            pos_hint:{"top":0.1, "right":0.75}
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            on_press: root.gyrosConsole()
+            on_release:root.manager.current = "Gyros"
+            background_color:(0, 0, 50, 0.2)
+        Button:
+            text:"Hamburger"
+            size_hint:0.5,0.2
+            pos_hint:{"top":0.1, "right":0.75}
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            on_press: root.hamburgerConsole()
+            on_release:root.manager.current = "Hamburger"
+            background_color:(20, 10, 0, 0.2)
+
+        Button:
+            text:"Exit"
+            size_hint:0.5,0.2
+            pos_hint:{"top":0.1, "right":0.75}
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            on_press:root.exit()
+            background_color:(0, 116, 30, 0.68)
+
+<Pizza>:
+    canvas:
+        Rectangle:
+            size:300,300
+            source:"img/pizza.jpg"
+            pos:250,400
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Neapolitan Pizza"
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            font_size: 25
+            size_hint:0.1,0.1
+            pos_hint:{"top":0.9, "right":0.55}
+        Label:
+            text_size:self.size
+            text: root.pizzaText()
+            size_hint:0.5,0.8
+            pos_hint:{"top":0.8, "right":0.75}
+            halign:"center"
+        Button:
+            text:"Back"
+            size_hint:0.5,0.1
+            pos_hint:{"top":0.1, "right":0.75}
+            on_press:root.manager.current="Menu"
+            background_color:(255, 204, 0, 1)
+            color:(0,0,0,1)
+<Lasagne>:
+    canvas:
+        Rectangle:
+            size:400,300
+            source:"img/lasagne.jpg"
+            pos:200,400
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Lasagne"
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            font_size: 25
+            size_hint:0.1,0.1
+            pos_hint:{"top":0.9, "right":0.55}
+        Label:
+            text_size:self.size
+            text: root.lasagneRecipe()
+            size_hint:0.5,0.8
+            pos_hint:{"top":0.8, "right":0.75}
+            halign:"center"
+        Button:
+            text:"Back"
+            size_hint:0.5,0.1
+            pos_hint:{"top":0.1, "right":0.75}
+            on_press:root.manager.current="Menu"
+            background_color:(1, 0, 0, 0.68)
+<Gyros>:
+    canvas:
+        Rectangle:
+            size:500,300
+            source:"img/gyros.jpg"
+            pos:150,450
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Gyros"
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            font_size: 25
+            size_hint:0.1,0.05
+            pos_hint:{"top":0.9, "right":0.55}
+        Label:
+            text_size:self.size
+            text: root.gyrosRecipe()
+            size_hint:0.5,0.8
+            pos_hint:{"top":0.8, "right":0.75}
+            halign:"center"
+        Button:
+            text:"Back"
+            size_hint:0.5,0.1
+            pos_hint:{"top":0.1, "right":0.75}
+            on_press:root.manager.current="Menu"
+            background_color:(0, 0, 50, 0.2)
+<Hamburger>:
+    canvas:
+        Rectangle:
+            size:500,300
+            source:"img/burger.jpg"
+            pos:150,350
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Hamburger"
+            font_name: "fonts/NotoSerif-Regular.ttf"
+            font_size: 25
+            size_hint:0.1,0.1
+            pos_hint:{"top":0.9, "right":0.55}
+        Label:
+            text_size:self.size
+            text: root.hamburgerRecipe()
+            size_hint:0.5,0.8
+            pos_hint:{"top":0.8, "right":0.75}
+            halign:"center"
+        Button:
+            text:"Back"
+            size_hint:0.5,0.1
+            pos_hint:{"top":0.1, "right":0.75}
+            on_press:root.manager.current="Menu"
+            background_color:(20, 10, 0, 0.2)
